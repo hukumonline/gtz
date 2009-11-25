@@ -1,0 +1,18 @@
+<?php if ((count($this->aPath)-1) > 0) { ?>
+<tr>
+<td class="td_peraturan2">
+<div id="kotakisi">
+<span class="kotakjudul">
+<?php for($i=0; $i<count($this->aPath);$i++) { ?>
+	<?php if($i != count($this->aPath)-1) {?>
+		<a class="linkhref" href="<?php echo $this->aPath[$i]['url']; ?>"><?php echo $this->aPath[$i]['title'];?></a> >
+	<?php } else {?>
+		<a class="linkhref" href="<?php echo $this->aPath[$i]['url']; ?>"><?php echo $this->aPath[$i]['title'];?></a>
+	<?php }?>
+
+<?php } ?>
+</span>
+</div>
+</td>
+</tr>
+<?php } ?>

@@ -1,0 +1,11 @@
+<?php echo $this->action('viewer', 'widgets_catalog', '', array('guid' => $this->catalogGuid,'node' => $this->node)); ?>
+<div style="padding-top:5px;"></div>
+<?php echo $this->action('document', 'widgets_relation', '', array('guid' => $this->catalogGuid)); ?>
+<div style="padding-top:5px;"></div>
+<?php echo $this->action('view-dasar-hukum', 'widgets_relation', '', array('guid' => $this->catalogGuid,'node' => $this->node)); ?>
+<div style="padding-top:5px"></div>
+<?php echo $this->action('peraturan-pelaksana', 'widgets_relation', '', array('guid' => $this->catalogGuid,'node' => $this->node)); ?>
+<div style="padding-top:5px;"></div>
+<?php echo $this->action('view-history', 'widgets_relation', '', array('guid' => $this->catalogGuid,'node' => $this->node)); ?>
+<div style="padding-top:5px;"></div>
+<?php echo $this->action('other', 'widgets_relation', '', array('parent' => $this->catalogGuid)); ?>

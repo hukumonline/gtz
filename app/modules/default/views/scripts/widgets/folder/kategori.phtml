@@ -1,0 +1,27 @@
+<div id="peraturan">
+<table>
+<?php if($this->numberOfFolders == 0){?>
+	<tr>
+		<td class="subtitle">No Sub-Folder(s)</td>
+	</tr>
+<?php }?>
+    <?php 
+    for($i = 0; $i < $this->rows; $i++) 
+		{
+    ?>
+	  <tr valign="top">
+	  <?php
+	  for($j = 0; $j < $this->columns; $j++) {
+	  	if(isset($this->data[$i + ($j * $this->rows)][2]))
+	  	{
+	  ?>
+		    <td><a href="<?php echo $this->getKutuRootUrl().'/view/node/'.$this->data[$i + ($j * $this->rows)][2];?>"><IMG src="<?php echo $this->getKutuRootUrl().'/resources/img/folder.png' ?>" border="0" /></a></td>
+		    <td>
+		    	<strong><a class="link" href="<?php echo $this->getKutuRootUrl().'/view/node/'.$this->data[$i + ($j * $this->rows)][2];?>"><?php echo $this->data[$i + ($j * $this->rows)][0];?><span style="font-size:12px;"></span></a></strong>
+		    </td>	    
+		<?php }} ?>
+	  </tr>
+	<?php } ?>
+</table>
+
+</div>

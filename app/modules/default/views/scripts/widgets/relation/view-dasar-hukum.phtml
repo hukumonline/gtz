@@ -1,0 +1,24 @@
+<?php if (count($this->rowsetRelatedItem) > 0) { ?>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<td class="widgetHeader">
+	<table>
+	<tr>
+		<td width="100%"><div class="widgetHeaderTitle">Dasar Hukum</div></td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td>
+	<div class="widgetContent">
+	<?php foreach ($this->rowsetRelatedItem as $row){?>
+	<div style="padding-top:5px"></div>
+		<a href="<?php echo $this->getKutuRootUrl();?>/detail/<?php echo $row->itemGuid;?>/node/<?php echo $this->node; ?>" class="linkhref"><?php echo $this->getCatalogTitle($row->itemGuid); ?></a>
+	<div style="padding-top:5px"></div>
+	<?php } ?>
+	</div>
+	</td>
+</tr>
+</table>
+<?php } ?>

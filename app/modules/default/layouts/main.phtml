@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Anti Corruption Clearinghouse</title>
+
+<link rel="stylesheet" href="<?php echo KUTU_ROOT_URL; ?>/resources/css/gtz.css">
+<link rel="stylesheet" href="<?php echo KUTU_ROOT_URL; ?>/resources/js/jquery/paging/pagination.css" type="text/css">
+<script type="text/javascript" src="<?php echo KUTU_ROOT_URL; ?>/resources/js/jquery/jquery-1.2.3.pack.js"></script>
+<script type="text/javascript" src="<?php echo KUTU_ROOT_URL; ?>/resources/js/jquery/paging/jquery.pagination.js"></script>
+
+</head>
+<body>
+
+<div id="header">
+	<div class="headercontent"></div>
+</div>
+
+<div id="pagewrapper">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+	<td valign="top" width="230">
+ 	<div class="menunavigation">
+		<div class="leftmenu">
+			<ul class="menucontainer">
+				<li class="list"><a href="<?php echo KUTU_ROOT_URL; ?>">Awal</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=Beranda">Beranda</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=Profil">Profil Anticorruption Clearinghouse</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=InformasiPublik">Informasi Publik</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=BestPractices">Best Practices</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=Journal">Journal</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/forum/">Forum</a></li>
+				<li class="list"><a href="http://perpustakaan/kpk.perpustakaan/">Perpustakaan</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=PojokAntiKorupsi">Pojok Anti Korupsi</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=InfoClearinghouse">Informasi Terkini</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=KegiatanClearinghouse">Kegiatan Clearinghouse</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=Bantuan">Bantuan</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=PetaSitus">Peta Situs</a></li>
+				<li class="list"><a href="http://202.152.235.33:83/acch2/?page=Hubungi">Hubungi Kami</a></li>
+		  	</ul>
+		</div>
+	</div>
+  	</td>
+   	<td align="left" valign="top">
+		<table class="breadcrumb" border="0" cellpadding="0" cellspacing="0" width="100%">
+	  	<tbody>
+	  	<tr>
+			<td><?php echo $this->action('folder', 'browser'); ?></td>
+			<?php
+			//Array Hari
+			$array_hari = array(1=>"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu");
+			$hari = $array_hari[date("N")];
+			?>
+	    	<td align="right" width="200"><?php echo strftime("$hari, %d %B %Y",strtotime(date("Y-m-d"))); ?></td>
+	  	</tr>
+		</tbody>
+		</table>
+		
+		<div class="maincontent">
+		
+ 		<div class="content">
+			<div class="search">
+				<form action="<?php echo $this->getKutuRootUrl();?>/search" method="post" onsubmit="return doSumbitForm();">
+				<b>Penelusuran Sumber Informasi</b> - Kata kunci : <input id="searchQuery" name="searchQuery" value='<?php echo $this->layout()->searchQuery;?>' class="selects" type="text"> 
+	            
+	      		<select id="keys" name="keys" class="selects">
+					<option value="0">Pilih Sumber Pencarian</option>
+					<option value="0">-- Semua --</option>
+					<option value="title">Judul</option>
+					<option value="number">Nomor</option>
+					<option value="judge">Hakim</option>
+					<option value="subtitle">Para Pihak</option>
+					<option value="year">Tahun</option>
+	 		 	</select>  &nbsp;&nbsp;
+				
+<input name="search" value="Cari" class="button1" type="submit">
+    			<!--<a href="http://202.152.235.33:83/acch2/?page=InformasiPublik&amp;action=SearchDetail" class="perinci">Pencarian Terperinci</a>-->
+    			
+				</form>
+				<div id="message" style="display: none;"></div>
+      		</div>
+<script type="text/javascript">
+$("#keys").val('<?php echo $this->layout()->categorySearchQuery; ?>');
+</script>
+      	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+      	<tbody><tr>
+      	<td style="padding-right: 20px;" valign="top" width="70%">
+		<?php echo $this->layout()->content; ?>
+		</td>
+		</tr></tbody></table>
+      	</div>
+      
+		</div>
+		
+	</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="footer"><img src="<?php echo KUTU_ROOT_URL; ?>/resources/img/footerkpk.jpg" alt="footer KPK"></div>
+
+</body>
+</html>
+<script language="javascript">
+	function doSumbitForm(){
+		var msg = document.getElementById("message");
+		var values = document.getElementById("values");
+//		var keys = document.getElementById("keys");
+		
+		if (values.value == ""){
+			msg.innerHTML = "Kata kunci tidak boleh kosong";
+		}
+//		else if (keys.value == "0"){
+//			msg.innerHTML = "<b>Pilih sumber pencarian</b>";
+//		}
+		else{
+			return true;
+		}
+		msg.style.display = "block";
+		return false;
+	}
+</script>

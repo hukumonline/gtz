@@ -1,0 +1,31 @@
+<table width="100%">
+<tr>
+		<div style="padding-top:10px"></div>
+		<strong><div style="font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;display:inline;"><?php echo $this->rowsetCatalogAttribute->findByAttributeGuid('fixedTitle')->value;?></div></strong>
+		<div style="padding-top:20px"></div>
+		<table>
+		<?php foreach ($this->aAttribute as $row) { ?>
+		
+		<?php if ((!in_array($row['value'],array('no-info','-','in','','00:00:00'))) && (!in_array($row['name'],array('Comments','Billing')))) { ?>
+		<tr valign="top">
+			<?php 
+			if ($this->profileGuid == "kutu_putusan") { 
+				if (($row['name'] == "Title") || ($row['name'] == "Sub Title"))	{
+			?>
+			<td width="200"><strong><div style="color:#2F2F2F;font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;display:inline"></div></strong><div style="padding-top:5px"></div></td>
+			<?php } else { ?>
+			<td width="200"><strong><div style="color:#2F2F2F;font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;display:inline"><?php echo $row['name'];?></div></strong><div style="padding-top:5px"></div></td>
+			<?php }} else { ?>
+			<td width="200"><strong><div style="color:#2F2F2F;font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;display:inline"><?php echo $row['name'];?></div></strong><div style="padding-top:5px"></div></td>
+			<?php } ?>
+			<td width="10">&nbsp;</td>
+			<?php if (in_array($row['name'],array('Date','Tanggal Dibacakan','Tanggal berlaku'))) { ?>
+			<td style="font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;"><?php echo strftime("%d %B %Y",strtotime($row['value']));?></td>
+			<?php } else { ?>
+			<td style="font-size: 11px;font-family: verdana,arial,helvetica,sans-serif;"><?php echo $row['value'];?></td>
+			<?php } ?>
+		</tr>
+		<?php }} ?>
+		</table>
+</tr>
+</table>

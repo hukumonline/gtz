@@ -1,0 +1,20 @@
+<?php
+$hits=$this->hits;
+?>
+
+<table>
+<?php foreach ($hits as $hit) { ?>
+	<tr valign=top>
+	<td width=25><a href='<?php echo $this->getKutuRootUrl();?>/detail/<?php echo $hit->guid; ?>/node/<?php echo $this->folderGuid; ?>'><IMG src='<?php echo $this->getKutuRootUrl().'/resources/img/doc-s.png' ?>' border=0 align=absmiddle /></a></td>
+	<td>
+	<div id=peraturan><a class=linkhref href='<?php echo $this->getKutuRootUrl();?>/detail/<?php echo $hit->guid; ?>/node/<?php echo $this->folderGuid; ?>'><?php echo $hit->title ?></a>
+	<div class=subtitle><?php echo $hit->subtitle; ?></div>
+	<div style='padding-top:8px'></div></div>
+	</td>
+	</tr>
+<?php } ?> 
+</table>
+
+<?php echo $this->paginationControl($hits, 'Sliding','s.phtml'); ?>
+
+

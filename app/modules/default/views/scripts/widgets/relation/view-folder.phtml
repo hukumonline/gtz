@@ -1,0 +1,18 @@
+<?php if (count($this->rowsetFolder) > 0) { ?>
+<div class="span-16 last">
+<fieldset>
+	<legend>Lokasi</legend>
+	<?php foreach ($this->rowsetFolder as $row){ ?>
+	<div class="span-15 last">
+		<?php if (in_array($row->guid,array('137','711'))) { ?>
+		<a href="<?php echo $this->getKutuRootUrl();?>/pusatdata/view/npts/<?php echo $row->guid;?>" class="linkhref"><?php echo $row->title; ?></a>
+		<?php } elseif (in_array($row->guid,array('658','761','971'))) { ?>
+		<a href="<?php echo $this->getKutuRootUrl();?>/pusatdata/view/nprt/<?php echo $row->guid;?>" class="linkhref"><?php echo $row->title; ?></a>
+		<?php } else { ?>
+		<a href="<?php echo $this->getKutuRootUrl();?>/pusatdata/view/node/<?php echo $row->guid;?>" class="linkhref"><?php echo $row->title; ?></a>
+		<?php } ?>
+	</div>
+	<?php } ?>
+</fieldset>
+</div>
+<?php } ?>
